@@ -7,7 +7,6 @@ const CODES = {
   Z: 90
 }
 
-<<<<<<< HEAD
 const DEFAULT_WIDTH = 120
 const DEFAULT_HEIGHT = 24
 
@@ -18,13 +17,6 @@ function getWidth(state, index) {
 function getHeight(state, index) {
   return (state[index] || DEFAULT_HEIGHT) + 'px'
 }
-=======
-// function toCell(row, col) {
-//   return `
-//     <div class="cell" contenteditable data-col="${col}"></div>
-//   `
-// }
->>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
 
 function toCell(state, row) {
   return function(_, col) {
@@ -41,15 +33,10 @@ function toCell(state, row) {
         contenteditable 
         data-col="${col}"
         data-type="cell"
-<<<<<<< HEAD
         data-id="${id}"
         data-value="${data || ''}"
         style="${styles}; width: ${width}"
       >${parse(data) || ''}</div>
-=======
-        data-id="${row}:${col}"
-      ></div>
->>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
     `
   }
 }
