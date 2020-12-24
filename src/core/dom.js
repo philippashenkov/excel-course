@@ -14,7 +14,11 @@ class Dom {
   }
 
   text(text) {
+<<<<<<< HEAD
     if (typeof text !== 'undefined') {
+=======
+    if (typeof text === 'string') {
+>>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
       this.$el.textContent = text
       return this
     }

@@ -4,9 +4,12 @@ import {createTable} from '@/components/table/table.template'
 import {resizeHandler} from '@/components/table/table.resize'
 import {isCell, matrix, nextSelector, shouldResize} from './table.functions'
 import {TableSelection} from '@/components/table/TableSelection'
+<<<<<<< HEAD
 import * as actions from '@/redux/actions'
 import {defaultStyles} from '@/constants'
 import {parse} from '@core/parse'
+=======
+>>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
 
 export class Table extends ExcelComponent {
   static className = 'excel__table'
@@ -32,16 +35,22 @@ export class Table extends ExcelComponent {
 
     this.selectCell(this.$root.find('[data-id="0:0"]'))
 
+<<<<<<< HEAD
     this.$on('formula:input', value => {
       this.selection.current
           .attr('data-value', value)
           .text(parse(value))
       this.updateTextInStore(value)
+=======
+    this.$on('formula:input', text => {
+      this.selection.current.text(text)
+>>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
     })
 
     this.$on('formula:done', () => {
       this.selection.current.focus()
     })
+<<<<<<< HEAD
 
     this.$on('toolbar:applyStyle', value => {
       this.selection.applyStyle(value)
@@ -50,11 +59,14 @@ export class Table extends ExcelComponent {
         ids: this.selection.selectedIds
       }))
     })
+=======
+>>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
   }
 
   selectCell($cell) {
     this.selection.select($cell)
     this.$emit('table:select', $cell)
+<<<<<<< HEAD
     const styles = $cell.getStyles(Object.keys(defaultStyles))
     this.$dispatch(actions.changeStyles(styles))
   }
@@ -66,6 +78,8 @@ export class Table extends ExcelComponent {
     } catch (e) {
       console.warn('Resize error', e.message)
     }
+=======
+>>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
   }
 
   onMousedown(event) {
@@ -103,6 +117,7 @@ export class Table extends ExcelComponent {
     }
   }
 
+<<<<<<< HEAD
   updateTextInStore(value) {
     this.$dispatch(actions.changeText({
       id: this.selection.current.id(),
@@ -112,5 +127,9 @@ export class Table extends ExcelComponent {
 
   onInput(event) {
     this.updateTextInStore($(event.target).text())
+=======
+  onInput(event) {
+    this.$emit('table:input', $(event.target))
+>>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
   }
 }

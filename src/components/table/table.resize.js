@@ -14,6 +14,7 @@ export function resizeHandler($root, event) {
       [sideProp]: '-5000px'
     })
 
+<<<<<<< HEAD
     document.onmousemove = e => {
       if (type === 'col') {
         const delta = e.pageX - coords.right
@@ -24,6 +25,17 @@ export function resizeHandler($root, event) {
         value = coords.height + delta
         $resizer.css({bottom: -delta + 'px'})
       }
+=======
+  document.onmousemove = e => {
+    if (type === 'col') {
+      const delta = e.pageX - coords.right
+      value = coords.width + delta
+      $resizer.css({right: -delta + 'px'})
+    } else {
+      const delta = e.pageY - coords.bottom
+      value = coords.height + delta
+      $resizer.css({bottom: -delta + 'px'})
+>>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
     }
 
     document.onmouseup = () => {
