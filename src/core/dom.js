@@ -14,7 +14,11 @@ class Dom {
   }
 
   text(text) {
+<<<<<<< HEAD
+    if (typeof text !== 'undefined') {
+=======
     if (typeof text === 'string') {
+>>>>>>> 8b0fca5b233493d1a6bcf741ec69ee5006541f30
       this.$el.textContent = text
       return this
     }
@@ -79,6 +83,13 @@ class Dom {
         })
   }
 
+  getStyles(styles = []) {
+    return styles.reduce((res, s) => {
+      res[s] = this.$el.style[s]
+      return res
+    }, {})
+  }
+
   id(parse) {
     if (parse) {
       const parsed = this.id().split(':')
@@ -95,12 +106,22 @@ class Dom {
     return this
   }
 
+  attr(name, value) {
+    if (value) {
+      this.$el.setAttribute(name, value)
+      return this
+    }
+    return this.$el.getAttribute(name)
+  }
+
   addClass(className) {
     this.$el.classList.add(className)
+    return this
   }
 
   removeClass(className) {
     this.$el.classList.remove(className)
+    return this
   }
 }
 
